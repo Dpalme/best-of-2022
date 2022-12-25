@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  @apply text-slate-100;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('https://im.vsco.co/aws-us-west-2/cd90ea/155530507/637094b22991eb37dd000007/5b71a94d-23aa-41c6-b42c-92f5f3c16fbf3623677695015032824.jpg');
+  /* @apply from-neutral-400 to-black bg-gradient-to-b bg-fixed; */
+  @apply bg-fixed bg-center bg-cover; 
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    @apply text-slate-800;
+  }
+  body {
+    @apply to-slate-300;
+  }
+} */
