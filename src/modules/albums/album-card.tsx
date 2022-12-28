@@ -1,4 +1,4 @@
-import { useAudioHook } from './audioContext';
+import { useAudioHook } from '../../shared/context/audioContext';
 
 export const AlbumCard = (props: {
   name: string;
@@ -24,8 +24,8 @@ export const AlbumCard = (props: {
         className="absolute w-full h-full top-0 left-0
         opacity-0 hover:opacity-100 transition-opacity duration-700
         bg-black bg-opacity-80 flex items-center xl:justify-end
-        justify-center p-3 text-white flex-col text-center xl:text-left
-        scale-105 hover:backdrop-blur-sm"
+        justify-center p-4 text-white flex-col text-center xl:text-left
+        scale-[101%] hover:backdrop-blur-sm gap-1 px-3"
       >
         <h2 className="text-sm tracking-widest w-full leading-none">
           {props.name}
