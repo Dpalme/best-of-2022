@@ -9,7 +9,7 @@ function AlbumsApp() {
   return (
     <div
       className="grid grid-cols-1 xl:grid-cols-[85vh_1fr] gap-16
-      items-center p-8 w-full py-8 xl:overflow-hidden transform"
+      items-center p-8 w-full py-8 xl:overflow-hidden"
     >
       <AlbumsList />
       <div
