@@ -10,7 +10,7 @@ function TracksApp() {
 
   return (
     <div
-      className="xl:max-h-[100vh] grid grid-cols-1 gap-16 w-full py-32
+      className="xl:max-h-[100vh] grid grid-cols-1 gap-32 w-full py-32
         snap-y snap-mandatory overflow-y-auto scrollbar-hide px-8 xl:px-16 max-w-4xl mx-auto"
     >
       {songs.map((props, i) => (

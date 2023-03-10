@@ -29,7 +29,14 @@ export const AudioProvider = (props: { children: ReactNode }) => {
     <AudioContext.Provider value={{ currentSong: song, changeSong }}>
       {props.children}
       {!!song && (
-        <audio src={song.preview} autoPlay crossOrigin="anonymous"></audio>
+        <audio
+          src={song.preview}
+          autoPlay
+          crossOrigin="anonymous"
+          onLoadStart={(event) => {
+            event.currentTarget.volume = 0.2;
+          }}
+        />
       )}
     </AudioContext.Provider>
   );

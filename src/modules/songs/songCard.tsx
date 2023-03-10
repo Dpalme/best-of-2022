@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { IAlbum, useAudioHook } from '../../shared/context/audioContext';
+import { m } from 'framer-motion';
 
 export const SongCard = (props: { track: IAlbum; index: number }) => {
   const changeSong = useAudioHook(props.track);
@@ -7,7 +8,9 @@ export const SongCard = (props: { track: IAlbum; index: number }) => {
 
   useLayoutEffect(() => {}, []);
   return (
-    <div
+    <m.div
+      initial={{ x: '-100%', opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
       ref={thisEl}
       className={[
         'transform scale-100 transition-transform md:max-h-[40vh]',
@@ -19,7 +22,7 @@ export const SongCard = (props: { track: IAlbum; index: number }) => {
       <img
         src={props.track.cover}
         alt={props.track.name + ' ' + props.track.artist}
-        className="h-full max-w-[40vh]"
+        className="h-full max-w-[40vh] aspect-square w-full"
       />
       <div
         className="w-full h-full top-0 left-0 duration-700
@@ -55,6 +58,6 @@ export const SongCard = (props: { track: IAlbum; index: number }) => {
           )}
         </div>
       </div>
-    </div>
+    </m.div>
   );
 };

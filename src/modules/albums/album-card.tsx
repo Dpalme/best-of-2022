@@ -17,19 +17,20 @@ export const AlbumCard = (props: {
   return (
     <div
       className="block transform scale-100 hover:scale-105 transition-transform
-      cursor-pointer hover:overflow-hidden"
+      cursor-pointer hover:overflow-hidden focus:scale-105"
       onClick={setSong}
     >
-      <img src={props.thumbnail} alt={props.name + ' ' + props.artist} />
+      <img src={props.thumbnail} alt={props.name + ' ' + props.artist} 
+      className="aspect-square w-full" />
       <div
         className="bg-black text-white absolute left-1 bottom-1
-        rounded-full w-6 h-6 flex justify-center items-center
-        text-sm bg-opacity-20 backdrop-blur-sm shadow-md font-light"
+        rounded-full w-12 h-12 lg:w-8 lg:h-8 flex justify-center items-center
+        text-xl lg:text-base bg-opacity-20 backdrop-blur-sm shadow-md font-light"
       >
         {props.position}
       </div>
       <div
-        className="absolute w-full h-full top-0 left-0
+        className="absolute w-full h-full top-0 left-0 focus:opacity-100
         opacity-0 hover:opacity-100 transition-opacity duration-700
         bg-black bg-opacity-80 flex items-center xl:justify-end
         justify-center p-4 text-white flex-col text-center xl:text-left
