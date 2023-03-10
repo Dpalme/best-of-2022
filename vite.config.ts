@@ -10,6 +10,9 @@ export default defineConfig(({ command, mode }) => {
     build: {
       rollupOptions: {
         input: {
+          mainApp: fileURLToPath(
+            new URL('./index.html', import.meta.url)
+          ),
           appSong: fileURLToPath(
             new URL('./songs/index.html', import.meta.url)
           ),
