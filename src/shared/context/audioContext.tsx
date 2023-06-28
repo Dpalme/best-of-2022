@@ -12,12 +12,13 @@ interface IAudioContext {
 }
 
 export interface IAlbum {
-  preview: string;
+  preview_url: string | null;
   cover: string;
   name: string;
   artist: string;
   spotify: string;
   tidal?: string;
+  srcSet: string;
 }
 
 const AudioContext = React.createContext<IAudioContext>({} as IAudioContext);
@@ -30,7 +31,7 @@ export const AudioProvider = (props: { children: ReactNode }) => {
       {props.children}
       {!!song && (
         <audio
-          src={song.preview}
+          src={song.preview_url || ''}
           autoPlay
           crossOrigin="anonymous"
           onLoadStart={(event) => {

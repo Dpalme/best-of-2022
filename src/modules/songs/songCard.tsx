@@ -4,16 +4,16 @@ import { m } from 'framer-motion';
 
 export const SongCard = (props: { track: IAlbum; index: number }) => {
   const changeSong = useAudioHook(props.track);
-  const thisEl = useRef(null);
 
   useLayoutEffect(() => {}, []);
   return (
     <m.div
       initial={{ x: '-100%', opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
-      ref={thisEl}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
       className={[
-        'transform scale-100 transition-transform md:max-h-[40vh]',
+        'md:max-h-[12rem]',
         'cursor-pointer overflow-hidden snap-center h-fit flex flex-col',
         'md:flex-row gap-4 md:gap-8 xl:gap-16 items-center',
       ].join(' ')}
@@ -21,14 +21,15 @@ export const SongCard = (props: { track: IAlbum; index: number }) => {
     >
       <img
         src={props.track.cover}
+        srcSet={props.track.srcSet}
         alt={props.track.name + ' ' + props.track.artist}
-        className="h-full max-w-[40vh] aspect-square w-full"
+        className="h-full w-48 aspect-square"
       />
       <div
-        className="w-full h-full top-0 left-0 duration-700
+        className="w-full h-full
             flex items-center md:justify-end
             justify-center p-4 text-white flex-col text-center md:text-left
-            scale-[101%] hover:backdrop-blur-sm gap-1 px-3 py-16 mb-16"
+            gap-1 px-3 py-16 mb-16"
       >
         <h2 className="text-4xl tracking-widest w-full leading-none">
           {props.index + 1}. {props.track.name}

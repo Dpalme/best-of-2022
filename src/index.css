@@ -27,8 +27,13 @@ body {
   @apply bg-slate-700 bg-fixed bg-center bg-cover w-full;
 }
 
+body::before {
+  content: '';
+  @apply fixed w-full h-full top-0 left-0 from-transparent to-black bg-gradient-to-l;
+}
+
 #root {
-  @apply w-full xl:overflow-hidden;
+  @apply w-full xl:overflow-hidden min-h-screen;
 }
 
 @layer utilities {

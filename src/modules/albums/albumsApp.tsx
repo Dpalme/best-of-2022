@@ -8,9 +8,15 @@ function AlbumsApp() {
   useEffect(() => changeSong(undefined), []);
 
   return (
-    <div
-      className="grid grid-cols-1 xl:grid-cols-[85vh_1fr] gap-16
-      items-center p-8 w-full py-8 xl:overflow-hidden"
+    <m.div
+      layout
+      layoutScroll
+      className="grid grid-cols-1 xl:grid-cols-[85vh_1fr] gap-16 xl:h-screen
+      items-center p-8 w-full py-8 xl:overflow-hidden bg-cover bg-fixed"
+      style={{
+        backgroundImage:
+          "url('https://im.vsco.co/aws-us-west-2/cd90ea/155530507/637094b22991eb37dd000007/5b71a94d-23aa-41c6-b42c-92f5f3c16fbf3623677695015032824.jpg')",
+      }}
     >
       <AlbumsList />
       <m.div
@@ -31,8 +37,10 @@ function AlbumsApp() {
               src={currentSong?.cover}
             ></img>
             <div className="w-full">
-              <h2 className="text-3xl tracking-widest bg-clip-text drop-shadow-2xl
-              leading-wider">
+              <h2
+                className="text-3xl tracking-widest bg-clip-text drop-shadow-2xl
+              leading-wider"
+              >
                 {currentSong.name}
               </h2>
               <h3 className="text-xl font-light mb-4 tracking-wide leading-none">
@@ -56,11 +64,19 @@ function AlbumsApp() {
                   </a>
                 )}
               </div>
+              {currentSong.preview_url == null && (
+                <p
+                  className="font-light mt-4 tracking-wide leading-none
+                text-white p-4 bg-red-500 rounded-md"
+                >
+                  No song preview available :(
+                </p>
+              )}
             </div>
           </div>
         )}
       </m.div>
-    </div>
+    </m.div>
   );
 }
 
